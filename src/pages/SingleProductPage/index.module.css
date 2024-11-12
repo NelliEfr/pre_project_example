@@ -1,0 +1,39 @@
+.single_product > div {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+    margin: 20px auto;
+}
+
+.single_product img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+.single_product > div > div {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.single_product span {
+    padding: 7px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.single_product  > div > div > div {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    gap: 15px;
+    width: fit-content;
+}

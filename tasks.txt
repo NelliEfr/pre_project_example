@@ -1,0 +1,65 @@
+1. npm i redux react-redux react-router-dom redux-thunk
+2. Создать store и подключить к App. Добавить в настройки store redux-thunk
+3. Создать NavMenu (Main, Categories, All Products, Cart)
+4. Создать MainPage, CategoriesPage, AllProductsPage, NotFoundPage, CartPage. Настроить роутинг
+
+
+==== All Products Page ===
+5. Создать allProductsReducer (с изначальным состоянием []), добавить в rootReducer
+6. Создать ProductsContainer и ProductCard
+7. ProductsContainer -> AllProductsPage
+8. На AllProductsPage обратиться в store за состоянием в allProductsReducer (useSelector)
+9. Передать allProductsState в ProductsContainer через пропс products
+10. В ProductsContainer на основе массива из пропса products отрисовать карточки продукта (ProductCard - image, title, price)
+11. Создать функцию getAllProducts, которая будет отправлять запрос по ссылке https://fakestoreapi.com/products и выводить полученные данные в консоль
+12. Вызвать функцию на AllProductsPage
+13. Создать loadAllProductsAction, прописать для него логику в allProductsReducer
+14. Вызвать loadAllProductsAction при получении ответа по запросу в функции getAllProducts
+
+
+==== Categories Page ===
+15. Создать categoriesReducer (с изначальным состоянием []), добавить в rootReducer
+16. Создать CategoriesContainer и CategoryCard
+17. CategoriesContainer -> CategoriesPage
+18. На CategoriesPage обратиться в store за состоянием в categoriesReducer (useSelector)
+19. Передать categoriesState в CategoriesContainer через пропс categories
+20. В CategoriesContainer на основе массива из пропса categories отрисовать карточки категорий (CategoryCard)
+21. Создать функцию getCategories, которая будет отправлять запрос по ссылке https://fakestoreapi.com/products/categories и выводить полученные данные в консоль
+22. Вызвать функцию на CategoriesPage
+23. Создать loadCategoriesAction, прописать для него логику в categoriesReducer
+24. Вызвать loadCategoriesAction при получении ответа по запросу в функции getCategories
+25. Стилизовать карточки категорий 
+26. Сделать названия категорий с большой буквы
+
+
+==== ProductsByCategory Page ===
+27. Создать ProductsByCategoryPage, добавить к роутингу (/categories/:category_name)
+28. При клике на карточку категории перебрасывать на роут /categories/:category_name, где на место category_name подставляется название категории
+29. Создать productsByCategoryReducer c изначальным состоянием [], добавить в rootReducer 
+30. На странице ProductsByCategoryPage добавить ProductsContainer и передать в него состояние из productsByCategoryReducer через пропс products
+31. Написать функцию getProductsByCategory, которая будет принимать название категории в качестве аргумента, отправлять запрос по ссылке https://fakestoreapi.com/products/category/CATEGORY_NAME и выводить в консоль полученные данные 
+32. Вызвать функцию getProductsByCategory на странице ProductsByCategoryPage
+33. Создать loadProductsByCategoryAction, прописать логику в productsByCategoryReducer
+34. Вызвать loadProductsByCategoryAction (через dispatch) при вызове функции getProductsByCategory
+
+
+==== SingleProductPage ====
+35. Создать SingleProductPage, подключить к роутингу (/products/:id)
+36. При клике на ProductCard перебрасывать на роут /products/:id
+37. Создать singleProductReducer, c defaultState { data: {}, status: 'loading' }. Добавить в rootReducer
+38. Создать loadSingleProductAction, прописать логику 
+39. Создать getSingleProduct, которая принимает айди продукта в качсетве аргумента и записывает в состояние полученный объект с данными
+40. Вызвать getSingleProduct на странице SingleProductPage
+41. Отрисовать из состояния данные по продукту
+
+
+==== CartPage ====
+42. Каждой карточке товара добавить кнопку (div) 'Add to cart'
+43. Создать cartReducer (изначальное состояние []), добавить в rootReducer под ключом cart
+44. Создать CartContainer и CartItem
+45. CartContainer -> CartPage
+46. Если корзина пустая (в состоянии корзины []), выводить сообщение 'Your cart is empty...'. А если не пустая - выводить контейнер с карточками
+47. Создать addProductAction, прописать логику в cartReducer
+48. Вызвать addProductAction при клике на кнопку 'Add to cart'
+49. На основе состояния cartState в CartContainer отрисовать карточки продуктов в корзине (image, title, price, count + х в правом верхнем углу)
+50. Реализовать удаление карточки из корзины при клике на крестик
